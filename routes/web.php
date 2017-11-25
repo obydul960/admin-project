@@ -19,6 +19,9 @@
 //
 //Route::get('/home', 'HomeController@index')->name('home');
 
+
+
+
 Route::get('/admin', function () {
     return view('layouts.admin_master');
 });
@@ -48,6 +51,21 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/home', 'HomeController@index');
 
     Route::resource('users','UserController');
+
+     //clear cache from route, view, config and all cache data from application
+    Route::get('cachClear', function () {
+     /* Reoptimized class loader : php artisan optimize */
+    \Artisan::call('optimize');
+     /* Clear Cache facade value : php artisan cache:clear */
+    \Artisan::call('cache:clear');
+     /* Clear Route cache : php artisan route:clear */
+    \Artisan::call('route:clear');
+     /* Clear View cache :php artisan view:clear */
+    \Artisan::call('view:clear');
+     /* Clear Config cache : php artisan config:clear */
+    \Artisan::call('config:clear');
+    return Redirect::back();
+    });
 
     //user role create,edit,delete,show
     Route::resource('roles','Admin\RoleController',['middleware'=>['auth']]);

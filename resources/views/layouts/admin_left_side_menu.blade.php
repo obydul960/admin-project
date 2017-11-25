@@ -7,6 +7,12 @@
                 <span>Home</span>
             </a>
         </li>
+         <li>
+            <a href="{{url('cachClear')}}">
+                <i class="material-icons">text_fields</i>
+                <span>Cach Clear</span>
+            </a>
+        </li>
         <li>
             <a href="{{url('roles')}}">
                 <i class="material-icons">text_fields</i>
