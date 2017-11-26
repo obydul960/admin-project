@@ -54,8 +54,14 @@
                                 <button type="submit" class="btn btn-primary">
                                     Login
                                 </button>
+                                <a class="btn btn-primary" href="{{ url('auth/facebook') }}" id="btn-fblogin">
+                                    <i class="fa fa-facebook"></i> Login with Facebook
+                                </a>
+                                <a class="btn btn-primary" href="{{ url('auth/linkedin') }}" id="btn-fblogin">
+                                    <i class="fa fa-facebook"></i> Login with Linkedin
+                                </a>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <br/><a class="btn btn-link" href="{{ route('password.request') }}">
                                     Forgot Your Password?
                                 </a>
                             </div>

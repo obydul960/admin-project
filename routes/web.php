@@ -43,6 +43,21 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::auth();
 
+
+
+
+//facebook login
+Route::get('auth/facebook', 'Auth\LoginController@redirectToFacebook');
+Route::get('auth/facebook/callback', 'Auth\LoginController@handleFacebookCallback');
+// Linkdin login
+Route::get('auth/linkedin', 'Auth\LoginController@redirectToLinkedin');
+Route::get('auth/linkedin/callback', 'Auth\LoginController@handleLinkedinCallback');
+
+
+
+
+
+
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/', function () {
         return view('layouts.admin');

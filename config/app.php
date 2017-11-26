@@ -179,6 +179,8 @@ return [
         Zizaco\Entrust\EntrustServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         App\Providers\FormComponentServiceProvider::class,
+        // Laravel socialite
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
     ],
 
@@ -231,6 +233,8 @@ return [
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        //Laravel socialite
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
 
