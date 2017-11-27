@@ -21,10 +21,11 @@ class RoleAssiginController extends Controller
      */
     public function index()
     {
+
         $roleAssigns = DB::table('users')
-            ->join('role_user','users.id','=','role_user.user_id')
-            ->join('roles','role_user.role_id','=','roles.id')
-            ->select('role_user.id','users.name AS user_name','roles.name AS role_name')->get();
+            ->leftJoin('role_users','users.id','=','role_users.user_id')
+            ->join('roles','role_users.role_id','=','roles.id')
+            ->select('role_users.id','users.name AS user_name','roles.name AS role_name')->get();
         return view('role_assigns.index',compact('roleAssigns'));
     }
 
@@ -50,7 +51,7 @@ class RoleAssiginController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'user_id'   => 'required',
-            'role_id'   => 'required|unique:role_user,role_id',
+            'role_id'   => 'required|unique:role_users,role_id',
         ]);
         if ($validator->fails()) {
             Session::flash('error', 'Request Failure');

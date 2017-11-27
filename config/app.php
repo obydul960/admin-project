@@ -181,6 +181,7 @@ return [
         App\Providers\FormComponentServiceProvider::class,
         // Laravel socialite
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Cartalyst\Sentinel\Laravel\SentinelServiceProvider::class,
 
     ],
 
@@ -235,6 +236,9 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         //Laravel socialite
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Activation' => Cartalyst\Sentinel\Laravel\Facades\Activation::class,
+        'Reminder'   => Cartalyst\Sentinel\Laravel\Facades\Reminder::class,
+        'Sentinel'   => Cartalyst\Sentinel\Laravel\Facades\Sentinel::class,
 
     ],
 

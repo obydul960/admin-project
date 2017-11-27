@@ -44,7 +44,6 @@ class RoleController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name'   => 'required|unique:roles,name|min:2|max:30',
-            'display_name'   => 'required|min:2|max:30',
             'description'   => 'required|min:2|max:30'
         ]);
         if ($validator->fails()) {
@@ -53,8 +52,7 @@ class RoleController extends Controller
         } else {
             $role= new Role();
             $role->name = $request->get('name');
-            $role->display_name = $request->get('display_name');
-            $role->description = $request->get('description');
+            $role->permissions = $request->get('description');
             $role->save();
             Session::flash('success', 'Successfully created Roles!');
             return redirect::to('roles');
@@ -95,7 +93,6 @@ class RoleController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name'   => 'required|min:2|max:30',
-            'display_name'   => 'required|min:2|max:30',
             'description'   => 'required|min:2|max:30'
         ]);
         if ($validator->fails()) {
@@ -105,8 +102,7 @@ class RoleController extends Controller
             // store
             $role = Role::find($id);
             $role->name = $request->get('name');
-            $role->display_name = $request->get('display_name');
-            $role->description = $request->get('description');
+            $role->permissions = $request->get('description');
             $role->save();
 
             // redirect

@@ -17,7 +17,6 @@
 
                     {!! Form::open(['route' =>'roles.store','class' => 'form_advanced_validation','method' => 'POST','files' => true]) !!}
                     {{ Form::bsText('name') }}
-                    {{ Form::bsText('display_name') }}
                     {{ Form::bsText('description') }}
                     {{ Form::bsSubmit('Submit') }}
                     {!! Form::close() !!}

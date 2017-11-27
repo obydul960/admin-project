@@ -18,7 +18,6 @@
                             <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Display Name</th>
                                 <th>Description</th>
                                 <th>Action</th>
                             </tr>
@@ -26,7 +25,6 @@
                             <tfoot>
                             <tr>
                                 <th>Name</th>
-                                <th>Display Name</th>
                                 <th>Description</th>
                                 <th>Action</th>
                             </tr>
@@ -35,8 +33,7 @@
                             @foreach($roles as $role)
                             <tr>
                                 <td>{{$role->name}}</td>
-                                <td>{{$role->display_name}}</td>
-                                <td>{{$role->description}}</td>
+                                <td>{{$role->permissions}}</td>
                                 <td>
                                     <a class="btn btn-primary waves-effect" href="{{ URL::to('roles/' . $role->id . '/edit') }}" style="margin-left: 5px"> <i class="material-icons">edit</i> Edit</a>
                                     {{ Form::open(array('url' => 'roles/' . $role->id, 'class' => 'pull-left')) }}

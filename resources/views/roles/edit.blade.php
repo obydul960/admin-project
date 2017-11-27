@@ -17,8 +17,7 @@
 
                     {!! Form::open(['route' =>['roles.update',$role->id],'class' => 'form_advanced_validation','method' => 'PUT','files' => true]) !!}
                     {{ Form::bsText('name',$role->name) }}
-                    {{ Form::bsText('display_name',$role->display_name) }}
-                    {{ Form::bsText('description',$role->description) }}
+                    {{ Form::bsText('description',$role->permissions) }}
                     {{ Form::hidden('_method', 'PUT') }}
                     {{ Form::bsSubmit('Submit') }}
                     {!! Form::close() !!}
